@@ -49,7 +49,7 @@ export class ProductoEditPage implements OnInit{
         err => {
           this.mensajeError('Error en la conexión a datos');
         },
-        () => this.router.navigateByUrl('/tabs/productos')
+        () => this.router.navigateByUrl('/auuth-tabs/productos')
     );
   }
 
