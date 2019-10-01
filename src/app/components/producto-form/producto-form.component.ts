@@ -1,14 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { IProducto } from '../../models/producto.interface';
 
 @Component({
-  selector: 'app-producto-form',
-  templateUrl: './producto-form.component.html',
-  styleUrls: ['./producto-form.component.scss'],
+  selector: 'producto-form',
+  templateUrl: 'producto-form.component.html'
 })
 export class ProductoFormComponent implements OnInit {
+  @Input() producto: IProducto;
+  @Input() isUpdate: boolean;
+  @Output() fireAction: EventEmitter<IProducto> = new EventEmitter<IProducto>();
+  submitBtn: string;
+  isSubmited = false;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.submitBtn = this.isUpdate ? 'Actualizar' : 'Guardar';
+  }
 
+  processProducto(): void {
+    this.isSubmited = true;
+    this.fireAction.emit(this.producto);
+  }
 }

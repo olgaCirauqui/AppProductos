@@ -53,8 +53,8 @@ export class ProductosPage implements OnInit{
     });
   }
 
-  async delete(producto: IProducto) {
-    const confirm = await this.alertCtrl.create({
+  async delete(producto: IProducto) { //async espera mi decisión para seguir adelante
+    const confirm = await this.alertCtrl.create({ //esto es un alert
       header: 'Eliminar producto',
       subHeader: '¿Seguro que quieres realizar esta acción?',
       buttons: [

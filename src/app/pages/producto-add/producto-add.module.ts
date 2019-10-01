@@ -5,24 +5,24 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { HomePage } from './home.page';
-import{ComponentsModule} from 'src/app/components/components.module';
+import { ProductoAddPage } from './producto-add.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: ProductoAddPage
   }
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+    ComponentsModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild(routes),
-    ComponentsModule
+    RouterModule.forChild(routes)
   ],
-  declarations: [HomePage]
+  declarations: [ProductoAddPage]
 })
-export class HomePageModule {}
+export class ProductoAddPageModule {}

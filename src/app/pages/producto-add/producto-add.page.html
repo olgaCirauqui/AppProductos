@@ -1,0 +1,5 @@
+<app-header titulo="Agregar" backPath="/Auth-tabs/productos"></app-header>
+
+<ion-content padding>
+  <producto-form (fireAction)="save($event)" [isUpdate]="false" [producto]="producto"></producto-form>
+</ion-content>
