@@ -1,0 +1,44 @@
+<app-header titulo="Productos" backPath="/tabs"></app-header>
+
+<ion-content padding>
+  <ion-list #lista *ngIf="productos && productos.length > 0">
+    <ion-item-sliding *ngFor="let producto of productos">
+
+      <ion-item>
+        <ion-grid>
+          <ion-row class="small">
+            <ion-col size="8">
+              <ion-label>{{ producto.nombre }}</ion-label>
+            </ion-col>
+            <ion-col size="4">
+              <ion-label class="ion-text-end">{{ producto.precio | number }} €</ion-label>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-button color="success" size="small" (click)="edit(producto)">Editar</ion-button>
+        <ion-button color="danger" size="small" (click)="delete(producto)">Eliminar</ion-button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="add()" size="small">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+    <ion-fab-button (click)="getProductos()" size="small" color="success">
+      <ion-icon name="refresh"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <p *ngIf="productos && productos.length == 0" color="danger">
+    No hay productos
+  </p>
+
+</ion-content>

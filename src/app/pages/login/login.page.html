@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <form #loginForm="ngForm">
+      <ion-item>
+        <ion-label position="floating" color="primary">Usuario</ion-label>
+        <ion-input [(ngModel)]="usuario.userName" name="username" #username="ngModel" autocapitalize="off" required>
+        </ion-input>
+      </ion-item>
+
+      <p [hidden]="username.valid || !submited" padding-left>
+        El nombre de usuario es requerido
+      </p>
+
+      <ion-item>
+        <ion-label position="floating" color="primary">Password</ion-label>
+        <ion-input [(ngModel)]="usuario.password" name="password" #password="ngModel" autocapitalize="off" required
+          type="password"></ion-input>
+      </ion-item>
+
+      <p [hidden]="password.valid || !submited" padding-left>
+        El password es requerido
+      </p>
+
+      <ion-row>
+        <ion-col>
+          <ion-button (click)="onLogin(loginForm)" type="submit" color="primary" expand="block">Login</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-list>
+</ion-content>
